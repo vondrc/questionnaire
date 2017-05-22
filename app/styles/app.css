@@ -1,0 +1,18 @@
+/* app css stylesheet */
+/*@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";*/
+
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+
+.vcenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #1b6d85;
+}

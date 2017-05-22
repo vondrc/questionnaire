@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <div class="text-center">
+                <div class="col-sm-12">
+                    <h1>Dotazník</h1>
+                </div>
+            </div>
+            <form name="questionForm" ng-submit="postForm(person, 'end')" novalidate autocomplete="off">
+                <div class="col-xs-12 col-sm-6 form-group required">
+                    <label class="control-label" for="name">Jméno</label>
+                    <input id="Name" class="form-control" type="text" name="name" ng-model="person.name" required/>
+                </div>
+                <div class="col-xs-12 col-sm-6 form-group required">
+                    <label class="control-label" for="surname">Příjmení</label>
+                    <input id="surname" class="form-control" type="text" ng-model="person.surname" required/>
+                </div>
+                <div class="col-xs-12 col-sm-6 form-group required">
+                    <label class="control-label" for="age">Věková kategorie</label>
+                    <select id="age" class="form-control" ng-model="person.ageCategory"
+                            ng-options="category.id as category.value for category in ageCategories" required>
+                        <option></option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-6 form-group required">
+                    <div class="row">
+                        <label class="col-xs-12 control-label">Pohlaví:</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-6">
+                            <label class="radio-inline">
+                                <input id="male" type="radio" ng-model="person.gender" value="male" required> Muž
+                            </label>
+                        </div>
+                        <div class="col-xs-9 col-sm-6">
+                            <label class="radio-inline">
+                                <input id="female" type="radio" ng-model="person.gender" value="female" required> Žena
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-xs-12 form-group">
+                    <label for="activity">Oblíbená činnost</label>
+                    <input id="activity" ng-model="person.activity" type="text"
+                           uib-typeahead="activity.value for activity in activities[person.ageCategory] | filter:$viewValue"
+                           class="form-control">
+                </div>
+
+                <div class="col-xs-12 text-center">
+                    <button type="submit" class="btn btn-primary btn-lg" ng-disabled="questionForm.$invalid">
+                        <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Odeslat Formulář
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

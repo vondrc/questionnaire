@@ -6,10 +6,11 @@ var path = require('path');
 
 var config = {
     context: path.resolve(__dirname, 'app'),
-    entry: './app.js',
+    entry: './app.module.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: 'dist/'
     },
     resolve: {
         alias: {
@@ -22,7 +23,9 @@ var config = {
             {
                 test: /\.js$/,
                 use: [
-                    {loader: 'ng-annotate-loader'},
+                    {
+                        loader: 'ng-annotate-loader'
+                    },
                     {
                         loader: 'babel-loader'
                     }],
@@ -31,7 +34,7 @@ var config = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                use: ['css-to-string-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(css)$/,
@@ -40,13 +43,13 @@ var config = {
             {
                 test: /\.(woff|woff2)$/,
                 use: [{
-                    loader: 'file-loader'
+                    loader: 'file-loader?limit=1024&name=fonts/[name].[ext]'
                 }]
             },
             {
                 test: /\.(eot|svg|ttf)$/,
                 use: [{
-                    loader: 'file-loader'
+                    loader: 'file-loader?limit=1024&name=fonts/[name].[ext]'
                 }]
             }
         ]

@@ -6,7 +6,6 @@ module.exports = function (config) {
             // all files ending in "_test"
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'node_modules/angular-route/angular-route.js',
             'app/*.spec.js',
             'app/**/*.spec.js'
             // each file acts as entry point for the webpack configuration

@@ -3,8 +3,11 @@
 export default class IntroController {
     constructor($scope, $location) {
         'ngInject';
-        $scope.changeView = (view) => {
-            $location.path(view);
-        }
+        this.$scope = $scope;
+        this.$location = $location;
+    }
+
+    changeView(view) {
+        this.$location.path(view);
     }
 }

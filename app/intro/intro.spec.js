@@ -1,7 +1,7 @@
 require('./intro.module');
 require('./intro.controller');
 
-describe('Profile controller', function () {
+describe('Intro controller', function () {
 
     var $controller, $rootScope, $scope;
 
@@ -17,7 +17,7 @@ describe('Profile controller', function () {
         });
     });
 
-    it('should open modal', function () {
+    it('should change url path', function () {
         $scope.changeView('questionaire');
         expect($location.path()).toBe('/questionaire');
     });

@@ -3,24 +3,25 @@
 export default class QuestionnaireController {
     constructor($scope, $location, QuestionnaireService) {
         'ngInject';
+        this.$location = $location;
+        this.$scope = $scope;
+        this.QuestionnaireService = QuestionnaireService;
         $scope.ageCategories = QuestionnaireService.getCategories();
         $scope.activities = QuestionnaireService.getActivities();
-
-
-        $scope.postForm = (person, view) => {
-            QuestionnaireService.saveToStorage(person);
-            $scope.changeView(view);
-            $scope.reset();
-        };
-
-        $scope.reset = () => {
-            $scope.person = {};
-        };
-
-        $scope.changeView = (view) => {
-            $location.path(view);
-        };
-
-        $scope.reset();
+        this.reset();
     }
+
+    postForm(person, view) {
+        this.QuestionnaireService.saveToStorage(person);
+        this.changeView(view);
+        this.reset();
+    }
+
+    reset() {
+        this.$scope.person = {};
+    }
+
+    changeView(view) {
+        this.$location.path(view);
+    };
 }

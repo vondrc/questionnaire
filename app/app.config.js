@@ -7,15 +7,15 @@ export default class AppConfig {
         $routeProvider
             .when('/intro', {
                 templateUrl: 'app/intro/intro.html',
-                controller: 'IntroController'
+                controller: 'IntroController as ctrl'
             })
             .when('/questionnaire', {
                 templateUrl: 'app/questionnaire/questionnaire.html',
-                controller: 'QuestionnaireController'
+                controller: 'QuestionnaireController as ctrl'
             })
             .when('/end', {
                 templateUrl: 'app/end/end.html',
-                controller: 'EndController'
+                controller: 'EndController as ctrl'
             })
             .otherwise({redirectTo: '/intro'});
     }

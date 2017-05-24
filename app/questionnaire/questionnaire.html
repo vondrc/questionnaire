@@ -7,7 +7,7 @@
                     <h1>Dotazník</h1>
                 </div>
             </div>
-            <form name="questionForm" ng-submit="postForm(person, 'end')" novalidate autocomplete="off">
+            <form name="questionForm" ng-submit="ctrl.postForm(person, 'end')" novalidate autocomplete="off">
                 <div class="col-xs-12 col-sm-6 form-group required">
                     <label class="control-label" for="name">Jméno</label>
                     <input id="Name" class="form-control" type="text" name="name" ng-model="person.name" required/>
